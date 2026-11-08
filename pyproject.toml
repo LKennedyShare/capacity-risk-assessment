@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "capacity-risk-assessment"
+version = "0.1.0"
+description = "Capacity risk assessment report for Azure OpenAI PTU deployments."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["pydantic>=2"]
+
+[project.optional-dependencies]
+azure = ["azure-identity>=1.15", "azure-monitor-query>=1.2"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+capacity-risk-assessment = "capacity_risk_assessment.assessment:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
